@@ -6,37 +6,35 @@ import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 
 const About = () => {
+
   return (
     <div className='py-8 md:py-10'>
       <div className="main-container">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-16">
-          {/* Left Images */}
           <div className="relative md:pt-6">
             <Image
               src={about1}
               width={400}
               height={400}
-                alt="Child"
+              alt="Developer at work"
               className="w-5/6 rounded-xl transition-transform duration-500 hover:scale-105"
             />
             <Image
               src={about2}
               width={200}
               height={200}
-              alt="Silhouette"
+              alt="Laptop workspace"
               className="w-2/5 transition-transform duration-500 hover:scale-105 absolute bottom-[-20px] md:bottom-5 right-0 rounded-lg border-4 border-white shadow-lg"
             />
           </div>
-
-          {/* Right Content */}
           <div>
-            <h5 className='text-primary font-bold uppercase my-2 text-sm'>Welcome to SwiftParcel</h5>
+            <h5 className='text-primary font-bold uppercase my-2 text-sm'>Hello, I&apos;m Sultan</h5>
             <h1 className='font-semibold text-3xl md:text-4xl leading-snug mb-4'>
-              Reliable Delivery <br /> Across the Nation
+              Passionate <br /> Full Stack Developer
             </h1>
             <p className="text my-5">
-              Experience fast, secure, and affordable parcel services. From documents to heavy shipments,
-              we ensure your deliveries reach the right place at the right time.
+              I&apos;m a dedicated full-stack developer who loves crafting clean, efficient, and user-friendly web applications.
+              My focus lies in building scalable solutions using modern technologies across both frontend and backend.
             </p>
 
             {/* Mission + Vision */}
@@ -46,7 +44,7 @@ const About = () => {
                   <span><FaHeart /></span>My Mission
                 </h5>
                 <p className="text-sm">
-                  To simplify parcel delivery with technology-driven solutions and trusted logistics support.
+                  To develop high-performing digital products that solve real-world problems and deliver meaningful user experiences.
                 </p>
               </div>
               <div className="bg-secondary p-3 rounded">
@@ -54,17 +52,17 @@ const About = () => {
                   <span><FaEye /></span>My Vision
                 </h5>
                 <p className="text-sm">
-                  To become the most reliable and customer-friendly courier service, connecting businesses and people everywhere.
+                  To continuously evolve as a developer, blending creativity and technology to build impactful software for people and businesses.
                 </p>
               </div>
             </div>
 
             {/* Progress Bars */}
             <div className="space-y-4">
-              {/* On-Time Delivery */}
+              {/* Frontend Skills */}
               <div>
                 <div className="flex justify-between mb-1 font-semibold text-sm">
-                  <span>Frontend Skills on</span>
+                  <span>Frontend Development</span>
                   <span>95%</span>
                 </div>
                 <div className="w-full h-2 bg-gray-200 rounded-full overflow-hidden">
@@ -72,10 +70,10 @@ const About = () => {
                 </div>
               </div>
 
-              {/* Customer Satisfaction */}
+              {/* Backend Skills */}
               <div>
                 <div className="flex justify-between mb-1 font-semibold text-sm">
-                  <span>Backend Skills on</span>
+                  <span>Backend Development</span>
                   <span>88%</span>
                 </div>
                 <div className="w-full h-2 bg-gray-200 rounded-full overflow-hidden">
@@ -84,11 +82,11 @@ const About = () => {
               </div>
             </div>
 
-            {/* About Us Button */}
+            {/* About Me Button */}
             <div className="mt-6">
               <Link href={"/about"}>
                 <Button className="cursor-pointer text-white px-6 py-2 rounded-md text-sm font-semibold shadow">
-                  About Us
+                  More About Me
                 </Button>
               </Link>
             </div>
@@ -100,4 +98,4 @@ const About = () => {
   )
 }
 
-export default About
+export default About;

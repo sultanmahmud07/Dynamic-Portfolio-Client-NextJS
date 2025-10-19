@@ -82,7 +82,7 @@ const handleLogout = async () => {
             <div className="email_and_number flex items-center gap-8">
               <p className="flex items-center gap-2 text-white">
                 <span><FaPhone /></span>
-                <span>+09639222888</span>
+                <span>+8801327357894</span>
               </p>
               <p className="flex items-center gap-2 text-white">
                 <span className="text-xl"><MdOutlineEmail /></span>

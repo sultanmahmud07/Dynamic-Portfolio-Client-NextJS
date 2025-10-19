@@ -10,8 +10,8 @@ import { getAllProjects } from '@/services/ProjectServices'
 import { getAllBlogs } from '@/services/PostServices'
 
 const Home = async () => {
-   const projects = await getAllProjects({limit:6});
-   const blogs = await getAllBlogs({limit:6});
+   const projects = await getAllProjects({limit:3});
+   const blogs = await getAllBlogs({limit:3});
   return (
     <div>
       <Hero></Hero>

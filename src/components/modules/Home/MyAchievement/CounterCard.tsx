@@ -5,7 +5,7 @@ import CountUp from "react-countup";
 
 interface CounterData {
   logo: StaticImageData;
-  countNumber: number | string;
+  countNumber: number;
   name: string;
 }
 
@@ -15,31 +15,23 @@ interface CounterCardProps {
 
 const CounterCard: React.FC<CounterCardProps> = ({ data }) => {
   const { logo, countNumber, name } = data;
-
   const [isVisible, setIsVisible] = useState(false);
   const countRef = useRef<HTMLDivElement | null>(null);
 
-  const handleIntersection: IntersectionObserverCallback = (entries) => {
-    entries.forEach((entry) => {
-      setIsVisible(entry.isIntersecting);
-    });
-  };
-
   useEffect(() => {
-    const observer = new IntersectionObserver(handleIntersection, {
-      root: null,
-      rootMargin: "0px",
-      threshold: 0.5,
-    });
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          setIsVisible(entry.isIntersecting);
+        });
+      },
+      { threshold: 0.5 }
+    );
 
-    if (countRef.current) {
-      observer.observe(countRef.current);
-    }
-
+    if (countRef.current) observer.observe(countRef.current);
     return () => {
-      if (countRef.current) {
-        observer.unobserve(countRef.current);
-      }
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+      if (countRef.current) observer.unobserve(countRef.current);
     };
   }, []);
 
@@ -50,20 +42,20 @@ const CounterCard: React.FC<CounterCardProps> = ({ data }) => {
     >
       <Image
         src={logo}
-        alt="logo"
-        width={600}
-        height={600}
+        alt={name}
+        width={60}
+        height={60}
         className="w-16 mb-4"
       />
       <h4 className="text-3xl md:text-4xl font-bold">
-        <CountUp
-          duration={2.75}
-          start={0}
-          end={isVisible ? Number(countNumber) : 0}
-        />
+        {isVisible ? (
+          <CountUp duration={2.5} start={0} end={countNumber} />
+        ) : (
+          0
+        )}
         +
       </h4>
-      <p>{name}</p>
+      <p className="text-sm md:text-base font-medium mt-1">{name}</p>
     </div>
   );
 };
