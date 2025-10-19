@@ -1,5 +1,5 @@
 "use client";
-
+import Cookies from "js-cookie";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { Button } from "@/components/ui/button";
@@ -38,7 +38,7 @@ export default function LoginForm() {
       const response = await axios.post(
         `${process.env.NEXT_PUBLIC_BASE_API}/auth/login`,
         values,
-         { withCredentials: true }
+        { withCredentials: true }
       );
       console.log(response.data);
       const { message, data } = response.data;
@@ -46,6 +46,18 @@ export default function LoginForm() {
       const userId = data?.user.id;
 
       if (token) {
+        // ✅ Store tokens in cookies
+        Cookies.set("accessTokenNew", token, {
+          expires: 7, // 7 days
+          secure: true,
+          sameSite: "None",
+        });
+        console.log("Hello")
+        Cookies.set("refreshTokenNew", token, {
+          expires: 30, // 30 days
+          secure: true,
+          sameSite: "None",
+        });
         localStorage.setItem("token", token);
         localStorage.setItem("user_id", userId);
         toast.success(message || "Login successful!", {
@@ -56,7 +68,7 @@ export default function LoginForm() {
       } else {
         toast.error("Invalid response from server.");
       }
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (error: any) {
       console.error(error?.response?.data);
       toast.error(

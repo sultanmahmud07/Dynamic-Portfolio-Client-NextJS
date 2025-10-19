@@ -1,32 +1,31 @@
 
 import ProjectDetails from "@/components/modules/Project/ProjectDetails";
-import { getProjectBySlug } from "@/services/ProjectServices";
+import { getAllProjects, getProjectBySlug } from "@/services/ProjectServices";
+import { IProject } from "@/types";
 import React from "react";
 
-// export const generateStaticParams = async () => {
-//   const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_API}/post`);
-//   const { data: blogs } = await res.json();
+export const generateStaticParams = async () => {
+  const projects = await getAllProjects({limit:20});
+  return projects.data.map((project: IProject) => ({
+    slug: String(project.slug),
+  }));
+};
 
-//   return blogs.slice(0, 2).map((blog: any) => ({
-//     blogId: String(blog.id),
-//   }));
-// };
+export const generateMetadata = async ({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) => {
+  const { slug } = await params;
+  const project = await getProjectBySlug(slug);
 
-// export const generateMetadata = async ({
-//   params,
-// }: {
-//   params: Promise<{ blogId: string }>;
-// }) => {
-//   const { blogId } = await params;
-//   const blog = await getBlogById(blogId);
+  return {
+    title: project?.title,
+    description: project?.excerpt,
+  };
+};
 
-//   return {
-//     title: blog?.title,
-//     description: blog?.content,
-//   };
-// };
-
-const BlogDetailsPage = async ({
+const ProjectDetailsPage = async ({
   params,
 }: {
   params: Promise<{ slug: string }>;
@@ -42,4 +41,4 @@ const BlogDetailsPage = async ({
   );
 };
 
-export default BlogDetailsPage;
+export default ProjectDetailsPage;

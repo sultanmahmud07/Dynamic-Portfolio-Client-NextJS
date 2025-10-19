@@ -1,3 +1,4 @@
+export const dynamic = "force-dynamic";
 import CreateBlogForm from "@/components/modules/Dashboard/Blogs/CreateBlogForm";
 
 const CreateBlog = () => {

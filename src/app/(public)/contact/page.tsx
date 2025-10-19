@@ -1,8 +1,15 @@
 import ContactForm from "@/components/modules/Contact/ContactForm";
+import { Metadata } from "next";
 import Link from "next/link";
 
 import { GoHome } from "react-icons/go";
 import { IoIosArrowForward } from "react-icons/io";
+
+export const metadata: Metadata = {
+  title: "Contact | Get in Touch with Sultan Mahmud",
+  description:
+    "Have a project idea or collaboration in mind? Reach out through the contact form or email me directly. Let’s discuss how we can work together to build something impactful.",
+};
 
 const ContactPage = () => {
   return (

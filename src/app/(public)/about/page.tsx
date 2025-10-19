@@ -2,9 +2,16 @@
 import OurTestimonials from "@/components/modules/About/OurTestimonials/OurTestimonials";
 import ResumeSection from "@/components/modules/About/ResumeSection/ResumeSection";
 import VisionSection from "@/components/modules/About/VisionSection/VisionSection";
+import { Metadata } from "next";
 import Link from "next/link";
 import { GoHome } from "react-icons/go";
 import { IoIosArrowForward } from "react-icons/io";
+
+export const metadata: Metadata = {
+  title: "About | Learn More About Sultan Mahmud – Developer & Creator",
+  description:
+    "Discover the story behind Sultan Mahmud a passionate full-stack developer dedicated to building modern, scalable, and user-focused digital solutions. Learn more about my journey, values, and expertise.",
+};
 
 const AboutPage = () => {
   return (

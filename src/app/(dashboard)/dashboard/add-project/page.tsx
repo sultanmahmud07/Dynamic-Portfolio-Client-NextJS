@@ -1,3 +1,4 @@
+export const dynamic = "force-dynamic";
 import CreateProjectForm from "@/components/modules/Dashboard/Projects/CreateProjectForm";
 
 const Page = () => {

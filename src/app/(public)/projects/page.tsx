@@ -7,9 +7,9 @@ import { GoHome } from "react-icons/go";
 import { IoIosArrowForward } from "react-icons/io";
 
 export const metadata: Metadata = {
-  title: "All Blogs | Next Blog",
+  title: "Projects | Explore My Latest Web & App Development Work",
   description:
-    "Browse all blog posts on web development, Next.js, React, and more. Stay updated with the latest tutorials and articles.",
+    "Browse a collection of innovative projects showcasing my skills in web and app development. From backend APIs to dynamic frontend designs, explore how I bring ideas to life through code.",
 };
 
 const AllBlogsPage = async () => {

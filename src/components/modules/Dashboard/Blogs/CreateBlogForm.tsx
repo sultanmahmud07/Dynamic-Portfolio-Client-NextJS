@@ -23,7 +23,7 @@ const blogSchema = z.object({
 
 type BlogFormData = z.infer<typeof blogSchema>;
 
-export default function CreateBlogForm() {
+const CreateBlogForm = () => {
   const [formData, setFormData] = useState({ content: "" });
   const [tags, setTags] = useState<string[]>([]);
   const [tagInput, setTagInput] = useState("");
@@ -31,7 +31,7 @@ export default function CreateBlogForm() {
   const { register, handleSubmit, formState: { errors, isSubmitting }, setValue } = useForm<BlogFormData>({
     resolver: zodResolver(blogSchema),
   });
-const navigate = useRouter();
+  const navigate = useRouter();
   const handleAddTag = () => {
     const t = tagInput.trim();
     if (t && !tags.includes(t)) {
@@ -64,6 +64,7 @@ const navigate = useRouter();
       if (data.file && data.file[0]) sendData.append("file", data.file[0]);
 
       const token = localStorage.getItem("token");
+      
       await axios.post(`${process.env.NEXT_PUBLIC_BASE_API}/post/create`, sendData, {
         withCredentials: true,
         headers: {
@@ -74,7 +75,7 @@ const navigate = useRouter();
 
       toast.success("Blog created successfully!");
       navigate.push("/dashboard/manage-blog");
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (err: any) {
       console.error(err);
       toast.error(err.response?.data?.message || "Failed to create blog");
@@ -189,3 +190,5 @@ const navigate = useRouter();
     </div>
   );
 }
+
+export default CreateBlogForm;

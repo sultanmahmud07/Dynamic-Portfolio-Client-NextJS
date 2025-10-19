@@ -11,6 +11,8 @@ import { Button } from "@/components/ui/button";
 import { getCookie } from "cookies-next/client";
 import React, { useEffect, useState } from "react";
 import { logout } from "@/utils/logout";
+import Cookies from "js-cookie";
+
 
 
 
@@ -29,8 +31,17 @@ const Navbar = () => {
     }
   }, []);
 
+const newToken = Cookies.get("accessTokenNew");
 
-  console.log("Access Token:", token); // ✅ Will show after hydration
+// You can create a JSON object:
+const cookieData = {
+  accessToken: newToken
+};
+
+const jsonString = JSON.stringify(cookieData);
+
+console.log(jsonString);
+
   const isAdmin = Boolean(token);
   useEffect(() => {
     const handleScroll = () => {
