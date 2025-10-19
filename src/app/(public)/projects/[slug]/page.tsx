@@ -1,15 +1,13 @@
 
 import ProjectDetails from "@/components/modules/Project/ProjectDetails";
-import { getAllProjects, getProjectBySlug } from "@/services/ProjectServices";
-import { IProject } from "@/types";
-import React from "react";
+import { getProjectBySlug } from "@/services/ProjectServices";
 
-export const generateStaticParams = async () => {
-  const projects = await getAllProjects({limit:20});
-  return projects.data.map((project: IProject) => ({
-    slug: String(project.slug),
-  }));
-};
+// export const generateStaticParams = async () => {
+//   const projects = await getAllProjects({limit:20});
+//   return projects.data.map((project: IProject) => ({
+//     slug: String(project.slug),
+//   }));
+// };
 
 export const generateMetadata = async ({
   params,
