@@ -109,7 +109,7 @@ npm run dev
 ## 🌍 Live Links
 
 - **Frontend (Live Demo):** [https://sultan-mahmud-portfolio.vercel.app](https://sultan-mahmud-portfolio.vercel.app)  
-- **Backend (API):** [https://assignment-7-postgre-sql-and-prisma.vercel.app/api/v1](https://assignment-7-postgre-sql-and-prisma.vercel.app/api/v1)  
+- **Backend (API):** [https://portfolio-api-brown-three.vercel.app/api/v1](https://portfolio-api-brown-three.vercel.app/api/v1)  
 
 ---
 
